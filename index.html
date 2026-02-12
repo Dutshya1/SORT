@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Organizer - О проекте</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-primary: #38bdf8;
+            --accent-secondary: #818cf8;
+            --success: #4ade80;
+            --gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn-download {
+            display: inline-block;
+            margin-top: 2.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            filter: brightness(1.1);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #334155;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Extension Badge Styles */
+        .ext-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: #000;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            border: 1px solid #334155;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #e2e8f0;
+        }
+
+        /* Steps */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--gradient);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>File Organizer</h1>
+            <p class="subtitle">Умный Python-скрипт для автоматической сортировки и организации ваших файлов.</p>
+            <a href="https://github.com/Dutshya1/SORT/releases/download/SORT/file_organizer.py" class="btn-download"
+                target="_blank">Скачать скрипт</a>
+        </header>
+
+        <section id="features">
+            <h2>Основные возможности</h2>
+            <div class="features-grid">
+                <div class="card">
+                    <h3>📂 Автоматическая сортировка</h3>
+                    <p>Мгновенно распределяет файлы по папкам: Изображения, Документы, Аудио, Видео и Архивы.</p>
+                </div>
+                <div class="card">
+                    <h3>🛡️ Безопасность данных</h3>
+                    <p>Не трогает другие папки и сам скрипт. Ваши данные в безопасности.</p>
+                </div>
+                <div class="card">
+                    <h3>🔄 Умное переименование</h3>
+                    <p>Автоматически обрабатывает дубликаты, добавляя индекс к имени файла (например,
+                        <code>photo_1.jpg</code>), чтобы ничего не потерялось.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>❓ Обработка неизвестных</h3>
+                    <p>Все файлы с неизвестными расширениями аккуратно складываются в папку <code>Others</code>.</p>
+                </div>
+                <div class="card">
+                    <h3>📝 Логирование</h3>
+                    <p>Подробный отчет о каждом перемещенном файле прямо в консоли.</p>
+                </div>
+                <div class="card">
+                    <h3>⚙️ Легкая настройка</h3>
+                    <p>Легко добавить свои категории или расширения, изменив простой словарь в коде.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="categories">
+            <h2>Поддерживаемые категории</h2>
+            <div class="features-grid">
+                <div class="card">
+                    <h3>Images</h3>
+                    <div class="ext-tags">
+                        <span class="tag">.jpg</span><span class="tag">.png</span><span class="tag">.gif</span><span
+                            class="tag">.webp</span><span class="tag">.svg</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Documents</h3>
+                    <div class="ext-tags">
+                        <span class="tag">.pdf</span><span class="tag">.docx</span><span class="tag">.txt</span><span
+                            class="tag">.xlsx</span><span class="tag">.pptx</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Audio</h3>
+                    <div class="ext-tags">
+                        <span class="tag">.mp3</span><span class="tag">.wav</span><span class="tag">.flac</span><span
+                            class="tag">.aac</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Video</h3>
+                    <div class="ext-tags">
+                        <span class="tag">.mp4</span><span class="tag">.avi</span><span class="tag">.mkv</span><span
+                            class="tag">.mov</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Archives</h3>
+                    <div class="ext-tags">
+                        <span class="tag">.zip</span><span class="tag">.rar</span><span class="tag">.7z</span><span
+                            class="tag">.tar</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="usage">
+            <h2>Как использовать</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Подготовка</h3>
+                        <p>Убедитесь, что у вас установлен Python 3.6 или выше. Скачайте файл
+                            <code>file_organizer.py</code>.
+                        </p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Запуск</h3>
+                        <p>Откройте терминал и запустите скрипт командой:</p>
+                        <pre><code>python file_organizer.py</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Выбор папки</h3>
+                        <p>Скрипт попросит указать путь к папке. Нажмите <strong>Enter</strong>, чтобы отсортировать
+                            текущую папку, или введите полный путь к другой директории.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="code-preview">
+            <h2>Пример кода</h2>
+            <p>Основные настройки категорий находятся внутри класса <code>FileOrganizer</code>:</p>
+            <pre><code>self.extensions_map = {
+    'Images': ['.jpg', '.jpeg', '.png', '.gif', ...],
+    'Documents': ['.pdf', '.docx', '.doc', '.txt', ...],
+    'Audio': ['.mp3', '.wav', ...],
+    # ...
+}</code></pre>
+        </section>
+
+        <footer>
+            <p>Generated for GitHub Project: <strong>SORT</strong></p>
+        </footer>
+    </div>
+</body>
+
+</html>
